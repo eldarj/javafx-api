@@ -2,8 +2,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <Label text="Welcome to Feedworks FX" alignment="center" BorderPane.alignment="CENTER"/>
+    </top>
+    <left>
+        <Label text="Sidebar" alignment="center"/>
+    </left>
+    <right>
+        <Label text="Right Sidebar" alignment="center"/>
+    </right>
     <bottom>
         <HBox spacing="10" alignment="bottom_right" style="-fx-border-color: red; -fx-border-width: 2px; -fx-border-style: dashed;">
             <padding>
