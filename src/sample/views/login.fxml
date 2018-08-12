@@ -28,7 +28,8 @@
         <VBox GridPane.rowIndex="1" styleClass="padding-top-2">
             <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="Login"
                        styleClass="btn-primary"
-                       onAction="#onLoginUser"/>
+                       onAction="#onButtonClicked"
+                       fx:id="loginButton"/>
             <Label styleClass="title-label, padding-top-2">
                 Remember me
             </Label>

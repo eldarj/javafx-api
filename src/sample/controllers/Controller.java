@@ -1,18 +1,38 @@
 package sample.controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
 
 public class Controller {
     @FXML
     private JFXTextField usernameField,
-                         passwordField;
+            passwordField;
+
+    @FXML
+    private JFXButton loginButton,
+                      cancelButton;
 
     /**
      * Login page button click handler
      */
-    public void onLoginUser() {
-        // send data to api for validation
+    @FXML
+    public void onButtonClicked(ActionEvent e) {
+
+        // check the clicked button
+        if (e.getSource().equals(loginButton)) {
+            this.loginUser();
+        } else if (e.getSource().equals(cancelButton)) {
+            this.cancelLogin();
+        }
+    }
+
+    /**
+     * Login handler
+     */
+    private void loginUser() {
         String token = ""; // Get/Generate token
         try {
             if (this.validateFromApi(
@@ -26,13 +46,20 @@ public class Controller {
     }
 
     /**
+     * Cancel handler
+     */
+    private void cancelLogin() {
+
+    }
+
+    /**
      * Validates user from WebAPI
      * @param username string from input
      * @param password string from input
      * @param token string from input
-     * @return
+     * @return returns generated user object (true dummy)
      */
-    public boolean validateFromApi(String username, String password, String token) {
+    private boolean validateFromApi(String username, String password, String token) {
         return true;
     }
 }
