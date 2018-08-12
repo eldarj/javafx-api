@@ -2,6 +2,8 @@ package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -14,6 +16,25 @@ public class Controller {
     @FXML
     private JFXButton loginButton,
                       cancelButton;
+
+    @FXML
+    public void initialize() {
+        loginButton.setDisable(true);
+        usernameField.textProperty().addListener(this.onInputChange());
+    }
+
+    private ChangeListener<String> onInputChange() {
+        return new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue.trim().length() > 0) {
+                    loginButton.setDisable(false);
+                } else {
+                    loginButton.setDisable(true);
+                }
+            }
+        };
+    }
 
     /**
      * Login page button click handler
