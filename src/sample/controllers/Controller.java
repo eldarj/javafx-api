@@ -8,6 +8,9 @@ public class Controller {
     private JFXTextField usernameField,
                          passwordField;
 
+    /**
+     * Login page button click handler
+     */
     public void onLoginUser() {
         // send data to api for validation
         String token = ""; // Get/Generate token
@@ -22,6 +25,13 @@ public class Controller {
         }
     }
 
+    /**
+     * Validates user from WebAPI
+     * @param username string from input
+     * @param password string from input
+     * @param token string from input
+     * @return
+     */
     public boolean validateFromApi(String username, String password, String token) {
         return true;
     }
