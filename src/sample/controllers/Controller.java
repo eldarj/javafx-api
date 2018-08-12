@@ -2,20 +2,23 @@ package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import sample.Main;
 
 
 public class Controller {
     @FXML
     private JFXTextField usernameField,
             passwordField;
-
     @FXML
     private JFXButton loginButton,
                       cancelButton;
+    @FXML
+    private JFXToggleButton rememberMeToggle;
 
     @FXML
     public void initialize() {
@@ -38,10 +41,11 @@ public class Controller {
      */
     @FXML
     public void onButtonClicked(ActionEvent e) {
-
         // check the clicked button
         if (e.getSource().equals(loginButton)) {
-            this.loginUser();
+            if(this.loginUser()) {
+                // user validated, redirect to other scene
+            }
         } else if (e.getSource().equals(cancelButton)) {
             this.cancelLogin();
         }
@@ -50,17 +54,24 @@ public class Controller {
     /**
      * Login handler
      */
-    private void loginUser() {
+    private boolean loginUser() {
         String token = ""; // Get/Generate token
         try {
             if (this.validateFromApi(
                     usernameField.getText().trim(),
                     passwordField.getText().trim(), token)) {
                 System.out.println("Validated!");
+                // also check is user wants to be remembered
+                if(rememberMeToggle.isSelected()) {
+                    // store user token
+                    System.out.println("Remember me!");
+                }
+                return true;
             }
         }catch (Error e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
     /**

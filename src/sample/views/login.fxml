@@ -33,7 +33,7 @@
             <Label styleClass="title-label, padding-top-2">
                 Remember me
             </Label>
-            <JFXToggleButton styleClass="toggle-primary"/>
+            <JFXToggleButton fx:id="rememberMeToggle" styleClass="toggle-primary"/>
         </VBox>
     </VBox>
 </GridPane>
