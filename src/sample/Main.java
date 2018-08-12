@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,10 +11,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
+        Parent root = FXMLLoader.load( getClass().getResource("views/login.fxml") );
 
-        primaryStage.setTitle("Feedworks");
-        primaryStage.setScene(new Scene(root, 800, 500));
+        Scene scene = new Scene(root, 800, 600);
+
+        final ObservableList<String> stylesheets = scene.getStylesheets();
+        stylesheets.addAll(Main.class.getResource("/sample/assets/css/jfoenix/jfoenix-design.css").toExternalForm());
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Feeder App - alpha v0.1");
         primaryStage.show();
     }
 

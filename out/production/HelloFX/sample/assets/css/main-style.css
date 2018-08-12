@@ -1,0 +1,36 @@
+/* Root, centralised and reused styles */
+.root {
+    -fx-font-size: 20px;
+    -primary-color: #4285F4;
+}
+
+/* Paddings */
+.padding-top-1 {
+    -fx-padding: 10px 0 0 0;
+}
+.padding-top-2 {
+    -fx-padding: 20px 0 0 0;
+}
+.padding-bottom-1 {
+    -fx-padding: 0 0 10px 0;
+}
+.padding-bottom-2 {
+    -fx-padding: 0 0 20px 0;
+}
+.title-label {
+    -fx-font-size: 16.0px;
+    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.7);
+}
+
+/* Component styles */
+.btn-primary {
+    -fx-text-fill: WHITE;
+    -fx-background-color: -primary-color;
+    -jfx-focus-color: red;
+}
+.toggle-primary {
+    -jfx-toggle-color: -primary-color;
+    -jfx-untoggle-color: #FAFAFA;
+    -jfx-untoggle-line-color: #999999;
+    -fx-padding: 0;
+}
