@@ -8,7 +8,7 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="sample.controllers.Controller"
+          fx:controller="sample.controllers.LoginController"
           stylesheets="
             @/sample/assets/css/main-style.css"
           styleClass="root"

@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import sample.Main;
 
-public class Controller {
+public class LoginController {
     @FXML private JFXTextField usernameField;
     @FXML private JFXPasswordField passwordField;
     @FXML private JFXButton loginButton, cancelButton;

@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXTextArea?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controllers.ProfileController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label>Profile</Label>
-</AnchorPane>
+            fx:controller="sample.controllers.ProfileController">
+    <top>
+        <Label fx:id="profileCover"></Label>
+    </top>
+    <left>
+        <Label fx:id="shortDescription"></Label>
+    </left>
+    <center>
+        <Label fx:id="profileImage"></Label>
+    </center>
+</BorderPane>
