@@ -1,24 +1,28 @@
 package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import sample.Main;
-
+import javafx.scene.control.Label;
 
 public class Controller {
     @FXML
-    private JFXTextField usernameField,
-            passwordField;
+    private JFXTextField usernameField;
+    @FXML
+    private JFXPasswordField passwordField;
     @FXML
     private JFXButton loginButton,
                       cancelButton;
     @FXML
     private JFXToggleButton rememberMeToggle;
+    @FXML
+    private Label userDataLabel;
 
     @FXML
     public void initialize() {
@@ -55,23 +59,41 @@ public class Controller {
      * Login handler
      */
     private boolean loginUser() {
-        String token = ""; // Get/Generate token
-        try {
-            if (this.validateFromApi(
-                    usernameField.getText().trim(),
-                    passwordField.getText().trim(), token)) {
-                System.out.println("Validated!");
-                // also check is user wants to be remembered
-                if(rememberMeToggle.isSelected()) {
-                    // store user token
-                    System.out.println("Remember me!");
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
+        String token = "yvj192f";
+        boolean rememberMe = rememberMeToggle.isSelected();
+
+        Runnable loginTask = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String platformThread = Platform.isFxApplicationThread() ? "UI Thread" : "Background Thread";
+                    System.out.println("Working at " + platformThread);
+                    Thread.sleep(500);
+                    if (validateFromApi(username,password, token)) {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                String platformThread = Platform.isFxApplicationThread() ? "UI Thread" : "Background Thread";
+                                System.out.println("Working at " + platformThread);
+                                System.out.println("Validated!");
+                                // also check is user wants to be remembered
+                                if(rememberMe) {
+                                    // store user token
+                                    System.out.println("Remember me!");
+                                }
+                                userDataLabel.setText("Welcome " + username + ":" + password + " @" + token);
+                            }
+                        });
+                    }
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                return true;
             }
-        }catch (Error e) {
-            System.out.println(e.toString());
-        }
-        return false;
+        };
+        new Thread(loginTask).start();
+        return true;
     }
 
     /**

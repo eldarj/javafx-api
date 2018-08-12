@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 
+<?import com.jfoenix.controls.JFXPasswordField?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="sample.controllers.Controller"
@@ -15,13 +16,14 @@
           vgap="10" hgap="10">
     <VBox styleClass="container">
         <VBox GridPane.rowIndex="0" styleClass="padding-bottom-1">
+            <Label fx:id="userDataLabel" styleClass="padding-top-2"></Label>
             <Label styleClass="super-title-label, padding-top-2">
                 Login
             </Label>
             <JFXTextField styleClass="input-primary, padding-bt-2"
                           promptText="Username"
                           fx:id="usernameField"/>
-            <JFXTextField styleClass="input-primary, padding-bt-2"
+            <JFXPasswordField styleClass="input-primary, padding-bt-2"
                           promptText="Password"
                           fx:id="passwordField"/>
         </VBox>
