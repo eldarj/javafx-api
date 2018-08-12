@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="sample.Controller"
+          alignment="CENTER"
+          vgap="10"
+          hgap="10">
+    <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Login"/>
+</GridPane>

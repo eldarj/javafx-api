@@ -8,6 +8,9 @@
     <top>
         <Label text="Welcome to Feedworks FX" alignment="center" BorderPane.alignment="CENTER"/>
     </top>
+    <center>
+        <Label text="Data. Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet." alignment="CENTER"/>
+    </center>
     <left>
         <Label text="Sidebar" alignment="center"/>
     </left>
