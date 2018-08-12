@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="sample.Controller"
+          fx:controller="sample.controllers.Controller"
           stylesheets="
             @/sample/assets/css/main-style.css"
           styleClass="root"
           alignment="CENTER"
-          vgap="10"
-          hgap="10">
-    <VBox GridPane.rowIndex="0" styleClass="padding-bottom-1">
-        <Label styleClass="title-label, padding-bottom-1">Login</Label>
-        <JFXTextField styleClass="jfx-text-field"/>
-        <Label styleClass="title-label, padding-bottom-1">Password</Label>
-        <TextField/>
-    </VBox>
-    <VBox GridPane.rowIndex="1" styleClass="padding-bottom-1">
-        <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="Login"
-                   styleClass="btn-primary"/>
-        <Label styleClass="title-label, padding-top-2">Remember me</Label>
-        <JFXToggleButton styleClass="toggle-primary"/>
+          vgap="10" hgap="10">
+    <VBox styleClass="container">
+        <VBox GridPane.rowIndex="0" styleClass="padding-bottom-1">
+            <Label styleClass="super-title-label, padding-top-2">
+                Login
+            </Label>
+            <JFXTextField styleClass="input-primary, padding-bt-2"
+                          promptText="Username"
+                          fx:id="usernameField"/>
+            <JFXTextField styleClass="input-primary, padding-bt-2"
+                          promptText="Password"
+                          fx:id="passwordField"/>
+        </VBox>
+        <VBox GridPane.rowIndex="1" styleClass="padding-top-2">
+            <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="Login"
+                       styleClass="btn-primary"
+                       onAction="#onLoginUser"/>
+            <Label styleClass="title-label, padding-top-2">
+                Remember me
+            </Label>
+            <JFXToggleButton styleClass="toggle-primary"/>
+        </VBox>
     </VBox>
 </GridPane>

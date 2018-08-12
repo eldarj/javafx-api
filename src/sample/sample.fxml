@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<BorderPane fx:controller="sample.Controller"
+<BorderPane fx:controller="sample.controllers.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <Label text="Welcome to Feedworks FX" alignment="center" BorderPane.alignment="CENTER"/>

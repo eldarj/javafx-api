@@ -1,7 +1,24 @@
 /* Root, centralised and reused styles */
 .root {
+    /* Corporate Presets */
     -fx-font-size: 20px;
     -primary-color: #4285F4;
+    -gray: rgba(0.0, 0.0, 0.0, 0.6);
+    -light-gray: rgba(0.0, 0.0, 0.0, 0.4);
+    -light-black: rgba(0.0, 0.0, 0.0, 0.1);
+    -white: rgba(255,255,255, 0.95);
+    -subtle-white: rgba(0,0,0, 0.05);
+
+    /* Root styles */
+    -fx-background-color: -subtle-white;
+    -fx-padding: 10px 10px 10px 10px;
+}
+.container {
+    -fx-background-color: -white;
+    -fx-padding: 50px 100px;
+    -fx-border-width: 1;
+    -fx-border-color: -light-black;
+    -fx-border-radius: 1;
 }
 
 /* Paddings */
@@ -17,16 +34,27 @@
 .padding-bottom-2 {
     -fx-padding: 0 0 20px 0;
 }
+.padding-bt-2 {
+    -fx-padding: 20px 0 20px 0;
+}
+
+/* Titles, labels, fonts... */
+.super-title-label {
+    -fx-font-size: 25px;
+    -fx-text-fill: -gray;
+}
 .title-label {
     -fx-font-size: 16.0px;
-    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.7);
+    -fx-text-fill: -gray;
 }
 
 /* Component styles */
+.input-primary {
+    -fx-prompt-text-fill: -light-gray;
+}
 .btn-primary {
     -fx-text-fill: WHITE;
     -fx-background-color: -primary-color;
-    -jfx-focus-color: red;
 }
 .toggle-primary {
     -jfx-toggle-color: -primary-color;
