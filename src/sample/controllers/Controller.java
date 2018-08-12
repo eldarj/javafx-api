@@ -10,22 +10,16 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import sample.Main;
 
 public class Controller {
-    @FXML
-    private JFXTextField usernameField;
-    @FXML
-    private JFXPasswordField passwordField;
-    @FXML
-    private JFXButton loginButton,
-                      cancelButton;
-    @FXML
-    private JFXToggleButton rememberMeToggle;
-    @FXML
-    private Label userDataLabel;
+    @FXML private JFXTextField usernameField;
+    @FXML private JFXPasswordField passwordField;
+    @FXML private JFXButton loginButton, cancelButton;
+    @FXML private JFXToggleButton rememberMeToggle;
+    @FXML private Label userDataLabel;
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
         loginButton.setDisable(true);
         usernameField.textProperty().addListener(this.onInputChange());
     }
@@ -43,12 +37,11 @@ public class Controller {
     /**
      * Login page button click handler
      */
-    @FXML
-    public void onButtonClicked(ActionEvent e) {
+    @FXML public void onButtonClicked(ActionEvent e) {
         // check the clicked button
         if (e.getSource().equals(loginButton)) {
             if(this.loginUser()) {
-                // user validated, redirect to other scene
+                Main.getInstance().loginUser();
             }
         } else if (e.getSource().equals(cancelButton)) {
             this.cancelLogin();
