@@ -27,11 +27,8 @@ public class Controller {
         return new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (newValue.trim().length() > 0) {
-                    loginButton.setDisable(false);
-                } else {
-                    loginButton.setDisable(true);
-                }
+                boolean disable = newValue.trim().isEmpty();
+                loginButton.setDisable(disable);
             }
         };
     }
